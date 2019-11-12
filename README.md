@@ -38,6 +38,10 @@ In conclusion, the SMOTE oversampler model had the best balanced accuracy score,
 
 ![forest](forester.png)
 
+The top three features: 
+
+![features](features.png)
+
 ##### Easy Ensemble Classifier Accuracy Score: 93.0%
 
 ![easy](easy.png)
@@ -46,13 +50,7 @@ In conclusion, the SMOTE oversampler model had the best balanced accuracy score,
 ![ada](ada.png)
 
 
-> Which model had the best balanced accuracy score?
->
-> Which model had the best recall score?
->
-> Which model had the best geometric mean score?
->
-> What are the top three features?
+In conclusion, the Easy Ensemble Classifier had the best balanced accuracy score, but the AdaBoost had the best recall and geometric score. 
 
-![featrures](features.png)
+
 
