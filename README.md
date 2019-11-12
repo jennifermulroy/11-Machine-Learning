@@ -14,15 +14,26 @@ Before running the algorithms, the data from LendingClub was cleaned and prepare
 
 Naive Random Oversampling Balanced Accuracy Score: 70.0%
 
+![naive](naive.png)
+
 SMOTE Oversampling Balanced Accuracy Score: 72.0%
+
+![smote](smote.png)
+
 
 ### Cluster Centroids algorithm to undersample the data 
 
-Cluster Centroids Undersampling Balanced Accuracy Score: 65.0%
+Cluster Centroids Undersampling Balanced Accuracy Score: 65.0
+
+![cluster](cluster.png)
+
 
 ### SMOTEENN algorithm to over and under-sample the data 
 
 SMOTEENN Combination Balanced Accuracy Score: 69.0%
+
+![smoteenn](smoteenn.png)
+
 
 ## Ensemble Learning
 
@@ -38,6 +49,13 @@ Use the above to answer the following:
 > What are the top three features?
 
 Balanced Random Forest Classifier Accuracy Score: 78.0%
+
+![forest](forester.png)
+
 Easy Ensemble Classifier Accuracy Score: 93.0%
+
+![easy](easy.png)
 AdaBoost Classifier Accuracy Score: 69.0%
+
+![ada](ada.png)
 
