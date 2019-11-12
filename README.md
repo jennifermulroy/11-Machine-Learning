@@ -45,12 +45,8 @@ The top three features:
 ##### Easy Ensemble Classifier Accuracy Score: 93.0%
 
 ![easy](easy.png)
-##### AdaBoost Classifier Accuracy Score: 69.0%
 
-![ada](ada.png)
-
-
-In conclusion, the Easy Ensemble Classifier had the best balanced accuracy score, but the AdaBoost had the best recall and geometric score. 
+In conclusion, the Easy Ensemble Classifier had the best balanced accuracy score, recall score, and geometric score. 
 
 
 
