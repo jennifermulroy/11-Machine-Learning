@@ -23,7 +23,7 @@ Before running the algorithms, the data from LendingClub was cleaned and prepare
 
 ### Cluster Centroids algorithm to undersample the data 
 
-##### Cluster Centroids Undersampling Balanced Accuracy Score: 65.0
+##### Cluster Centroids Undersampling Balanced Accuracy Score: 65.0%
 
 ![cluster](cluster.png)
 
