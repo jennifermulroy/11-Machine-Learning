@@ -2,7 +2,7 @@
 
 In this assignment, several machine-learning models were used to predict credit risk using free data from LendingClub. 
 
-Credit risk poses an inherently imbalanced classification problem, the number of observations belonging to a high credit risk class tends to be significantly lower than a low credit risk class. Conventional machine learning algorithms do not take into account class disruption and therefore, may produce biased and inaccurate results on imbalanced data.   
+Credit risk poses an inherently imbalanced classification problem, the number of observations belonging to a high credit risk class tends to be significantly lower than a low credit risk class. Conventional machine learning algorithms do not perform well with class disruption and therefore, may produce biased and inaccurate results with imbalanced data.   
 
 In the first part of the analysis, resampling algorithms are used to address the class imbalance problem by oversampling, undersampling, and using a combination approach on the training data. With the resampled data, `LogisticRegression` from Scikit-learn library was used to build logistic regression classifier models. 
 
@@ -107,13 +107,7 @@ Imbalanced Classification Reports :
 
 ## Ensemble Learning
 
-For the ensemble learners, use 100 estimators for both models
-
-1. Train the model using the quarterly data from LendingClub provided in the `Resource` folder.
-2. Calculate the balanced accuracy score from `sklearn.metrics`.
-3. Print the confusion matrix from `sklearn.metrics`.
-4. Generate a classification report using the `imbalanced_classification_report` from imbalanced learn.
-5. For the balanced random forest classifier only, print the feature importance sorted in descending order (most important feature to least important) along with the feature score.
+For the ensemble learners, 100 estimators were used for both models.
 
 ##### Balanced Random Forest Classifier Accuracy Score: 78.0%
 
