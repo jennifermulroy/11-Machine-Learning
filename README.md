@@ -9,25 +9,25 @@ Before running the algorithms, the data from LendingClub was cleaned and prepare
 
 ##### Naive Random Oversampling Balanced Accuracy Score: 70.0%
 
-![naive](naive.png)
+![naive](images/naive.png)
 
 ##### SMOTE Oversampling Balanced Accuracy Score: 72.0%
 
-![smote](smote.png)
+![smote](images/smote.png)
 
 
 ### Cluster Centroids algorithm to undersample the data 
 
 ##### Cluster Centroids Undersampling Balanced Accuracy Score: 65.0%
 
-![cluster](cluster.png)
+![cluster](images/cluster.png)
 
 
 ### SMOTEENN algorithm to over and under-sample the data 
 
 ##### SMOTEENN Combination Balanced Accuracy Score: 69.0%
 
-![smoteenn](smoteenn.png)
+![smoteenn](images/smoteenn.png)
 
 In conclusion, the SMOTE oversampler model had the best balanced accuracy score, recall score, and geometric mean score.
 
@@ -36,15 +36,15 @@ In conclusion, the SMOTE oversampler model had the best balanced accuracy score,
 
 ##### Balanced Random Forest Classifier Accuracy Score: 78.0%
 
-![forest](forester.png)
+![forest](images/forester.png)
 
 The top three features: 
 
-![features](features.png)
+![features](images/features.png)
 
 ##### Easy Ensemble Classifier Accuracy Score: 93.0%
 
-![easy](easy.png)
+![easy](images/easy.png)
 
 In conclusion, the Easy Ensemble Classifier had the best balanced accuracy score, recall score, and geometric score. 
 
