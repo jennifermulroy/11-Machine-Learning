@@ -2,11 +2,11 @@
 
 In this assignment, several machine-learning models were used to predict credit risk using free data from LendingClub. 
 
-Credit risk poses an inherently imbalalanced classification problem, the number of observations belonging to a high credit risk class tends to be significantly lower than a low credit risk class. Conventional machine learning algorithms do not take into account class disruption and therefore, may produce biased and inaccurate results.   
+Credit risk poses an inherently imbalanced classification problem, the number of observations belonging to a high credit risk class tends to be significantly lower than a low credit risk class. Conventional machine learning algorithms do not take into account class disruption and therefore, may produce biased and inaccurate results on imbalanced data.   
 
 In the first part of the analysis, resampling algorithms are used to address the class imbalance problem by oversampling, undersampling, and using a combination approach on the training data. With the resampled data, `LogisticRegression` from Scikit-learn library was used to build logistic regression classifier models. 
 
-In the second part of the analysis, two ensemble learning methods are constructed. 
+In the second part of the analysis, two ensemble learning methods were constructed and compared. 
 
 ##### Resampling Algorithms: 
 - `Naive Random Oversampler`
