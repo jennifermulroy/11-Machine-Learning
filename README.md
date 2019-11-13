@@ -15,35 +15,29 @@ In this assignment, several machine-learning models were used to predict credit 
 
 LendingClub Data Analysis 
 ------
+ 
+Before running the algorithms, the data from LendingClub was cleaned and prepared for analysis.  This included dropping null values and columns, and encoding categorical data using `get_dummies()`.  
 
-The LendingClub data included 
-Before running the algorithms, the data from LendingClub was cleaned and prepared for analysis.  This included dropping null values and columns, converting integer values to numerical data types, and encoding categorical data using `get_dummies()`.  
-
-The target data  to `low_risk` and `high_risk` based on their values
-
-`x = {'Current': 'low_risk'}   
-df = df.replace(x)`
-
-`x = dict.fromkeys(['Late (31-120 days)', 'Late (16-30 days)', 'Default', 'In Grace Period'], 'high_risk')    
-df = df.replace(x)`
+The target outcome column data, that would be used in the analysis, was converted  to `low_risk` if the loan status was flagged as `Current`  and `high_risk` if the loan status was `Late (31-120 days)`, `Late (16-30 days)`, `Default`, or `In Grace Period`. 
   
-Once the data was in proper form, the features and target outcome data were placed in new dataframes  
+The features and target outcome data were placed in new separate dataframes that would be further divided into training and testing data.  
 
-The target values, low risk and high risk, returned an expected imbalanced problem. Within the dataset, there were 68,470 high risk values verse 347 low risk values. 
+The target values, low risk and high risk, returned an expected imbalanced problem. Within the dataset, there were 68,470 low risk values verse 347 high risk values. 
 
 ![imbalance](images/imbalance.png) 
 
-To address this issue, multiple resampling models were tested and compared to determine which algorithm results in the best performance based on balanced accuracy score, recall score, and geometric mean score.  Below is a summary of results. 
+From there, the data was split into training and testing data using `train_test_split` from Scikit-learn library. 
+
+```X_train, X_test, y_train, y_test = train_test_split(X,y, random_state=1)```
+
+The y_train data further indicates an imbalanced classification. 
+
+![targetimbalance](images/targetimbalance.png)
 
 1. Train a `logistic regression classifier` from `sklearn.linear_model` using the resampled data.
 2. Calculate the `balanced accuracy score` from `sklearn.metrics`.
 3. Calculate the `confusion matrix` from `sklearn.metrics`.
 4. Print the `imbalanced classification report` from `imblearn.metrics`.
-
-```from sklearn.model_selection import train_test_split X_train, X_test, y_train, y_test = train_test_split(X,y, random_state=1)```
-
-- Split the Data into Training and Testing 
-
 
 model->fit->predict
 ### Naive Random Oversampler and SMOTE algorithms to oversample the data 
