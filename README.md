@@ -34,13 +34,35 @@ The y_train data further indicates an imbalanced classification.
 
 ![targetimbalance](images/targetimbalance.png)
 
+The training data was resampled: 
+
+- ###### Naive Random, Oversampler
+
+![naive_plot](images/naive_plot.png)
+
+
+- ###### SMOTE, Oversampler
+
+![smote_plot](images/smote_plot.png)
+
+
+- ###### Cluster Centroids, Undersampler
+
+![cluster_plot](images/cluster_plot.png)
+
+
+- ###### SMOTEENN, Combination
+
+![smoteenn_plot](images/smoteenn_plot.png)
+
+
+
 1. Train a `logistic regression classifier` from `sklearn.linear_model` using the resampled data.
 2. Calculate the `balanced accuracy score` from `sklearn.metrics`.
 3. Calculate the `confusion matrix` from `sklearn.metrics`.
 4. Print the `imbalanced classification report` from `imblearn.metrics`.
 
 model->fit->predict
-### Naive Random Oversampler and SMOTE algorithms to oversample the data 
 
 ##### Naive Random Oversampling Balanced Accuracy Score: 70.0%
 
@@ -51,18 +73,15 @@ model->fit->predict
 ![smote](images/smote.png)
 
 
-### Cluster Centroids algorithm to undersample the data 
-
 ##### Cluster Centroids Undersampling Balanced Accuracy Score: 65.0%
 
 ![cluster](images/cluster.png)
 
 
-### SMOTEENN algorithm to over and under-sample the data 
-
 ##### SMOTEENN Combination Balanced Accuracy Score: 69.0%
 
 ![smoteenn](images/smoteenn.png)
+
 
 |  Algorithms               | Balanced Accuracy Score | Recall Score| Geometric Mean Score |
 | -------------             |:-------------:          | -----:      |    ---               |
