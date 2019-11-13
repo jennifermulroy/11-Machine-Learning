@@ -34,53 +34,38 @@ The y_train data further indicates an imbalanced classification.
 
 ![targetimbalance](images/targetimbalance.png)
 
-The training data was resampled: 
+Resampling Algorithms and Train the Logistic Regression Model 
+------
 
-- ###### Naive Random, Oversampler
+To address the imbalanced classification issue, the training data was rebalanced:   
+
+- ##### Naive Random, Oversampler
 
 ![naive_plot](images/naive_plot.png)
 
 
-- ###### SMOTE, Oversampler
+- ##### SMOTE, Oversampler
 
 ![smote_plot](images/smote_plot.png)
 
 
-- ###### Cluster Centroids, Undersampler
+- ##### Cluster Centroids, Undersampler
 
 ![cluster_plot](images/cluster_plot.png)
 
 
-- ###### SMOTEENN, Combination
+- ##### SMOTEENN, Combination
 
 ![smoteenn_plot](images/smoteenn_plot.png)
 
+Using theses resampled training datasets, models were built using `logistic regression classifier` and fit using the test data to predict credit risk. 
+
+Model Performance Analysis 
+----
 
 
-1. Train a `logistic regression classifier` from `sklearn.linear_model` using the resampled data.
-2. Calculate the `balanced accuracy score` from `sklearn.metrics`.
-3. Calculate the `confusion matrix` from `sklearn.metrics`.
-4. Print the `imbalanced classification report` from `imblearn.metrics`.
+To evaluate and compare performance for each resampling algorithm, a balanced accuracy score, confusion matrix, and imbalanced classification report was generated. Below is a summary of results. 
 
-model->fit->predict
-
-##### Naive Random Oversampling Balanced Accuracy Score: 70.0%
-
-![naive](images/naive.png)
-
-##### SMOTE Oversampling Balanced Accuracy Score: 72.0%
-
-![smote](images/smote.png)
-
-
-##### Cluster Centroids Undersampling Balanced Accuracy Score: 65.0%
-
-![cluster](images/cluster.png)
-
-
-##### SMOTEENN Combination Balanced Accuracy Score: 69.0%
-
-![smoteenn](images/smoteenn.png)
 
 
 |  Algorithms               | Balanced Accuracy Score | Recall Score| Geometric Mean Score |
@@ -89,6 +74,23 @@ model->fit->predict
 | SMOTE Oversampling        | 72.0%                   |        |                      |
 | Cluster Centroids         | 65.0%                   |          |                      |
 | SMOTEENN                  | 69.0%                   |           |                      |
+
+
+
+
+
+![naive](images/naive.png)
+
+
+![smote](images/smote.png)
+
+
+![cluster](images/cluster.png)
+
+
+![smoteenn](images/smoteenn.png)
+
+
 
 
 
