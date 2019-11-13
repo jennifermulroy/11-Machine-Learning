@@ -1,10 +1,16 @@
 # Applying Machine-Learning Models to Predict Credit Risk 
 
-In this assignment, several machine-learning models were used to predict credit risk using free data from LendingClub. Credit risk poses an inherently imbalalanced classification problem. This was first addressed by deploying various resampling algorithms to the data, and then using `LogisticRegression` from Scikit-learn library to build logistic regression classifiers. In the second part of the analysis, ensemble classifiers were used to predict loan risk. 
+In this assignment, several machine-learning models were used to predict credit risk using free data from LendingClub. 
+
+Credit risk poses an inherently imbalalanced classification problem, the number of observations belonging to a high credit risk class tends to be significantly lower than a low credit risk class. Conventional machine learning algorithms do not take into account class disruption and therefore, may produce biased and inaccurate results.   
+
+In the first part of the analysis, resampling algorithms are used to address the class imbalance problem by oversampling, undersampling, and using a combination approach on the training data. With the resampled data, `LogisticRegression` from Scikit-learn library was used to build logistic regression classifier models. 
+
+In the second part of the analysis, two ensemble learning methods are constructed. 
 
 ##### Resampling Algorithms: 
 - `Naive Random Oversampler`
-- `SMOTE`
+- `SMOTE` 
 - `Cluster Centroids`
 - `SMOTEENN` 
 
@@ -30,14 +36,16 @@ From there, the data was split into training and testing data using `train_test_
 
 ```X_train, X_test, y_train, y_test = train_test_split(X,y, random_state=1)```
 
-The y_train data further indicates an imbalanced classification. 
+The y_train data further indicates imbalanced classification. 
 
 ![targetimbalance](images/targetimbalance.png)
 
-Resampling Algorithms and Train the Logistic Regression Model 
+Resampling Algorithms, Training the Logistic Regression Model 
 ------
 
-To address the imbalanced classification issue, the training data was rebalanced:   
+ The Naive Random and SMOTE Oversampling algorithms produced an equal number of 51366 observations. The Cluster Centroids undersampler produced an equal number of 246 observations. And the SMOTEENN combination resampler produced 51359 `high_risk` and 46660 `low_risk` observations. 
+
+Using these resampled training datasets, models were fit with the `logistic regression classifier` and predicted using the test data. 
 
 - ##### Naive Random, Oversampler
 
@@ -58,26 +66,32 @@ To address the imbalanced classification issue, the training data was rebalanced
 
 ![smoteenn_plot](images/smoteenn_plot.png)
 
-Using theses resampled training datasets, models were built using `logistic regression classifier` and fit using the test data to predict credit risk. 
+
 
 Model Performance Analysis 
 ----
 
+To evaluate and compare performance for each model, a balanced accuracy score, confusion matrix, and imbalanced classification report was generated. 
 
-To evaluate and compare performance for each resampling algorithm, a balanced accuracy score, confusion matrix, and imbalanced classification report was generated. Below is a summary of results. 
+The accuracy score measures the ratio of correctly predicted observations to the total observations. From the results below, SMOTE oversampling resulted in a slightly higher accuracy score. 
 
+A confusion matrix is a table that is used to describe the performance of a classification model on a set of test data for which the true values are known. From the confusion matrix, precision and recall ratios can be measured. Precision is the ratio of correctly predicted positive observations to the total predicted positive observations. Recall is the ratio of correctly predicted positive observations to the all observations in actual class
+Recall = TP/TP+FN
 
-
-|  Algorithms               | Balanced Accuracy Score | Recall Score| Geometric Mean Score |
-| -------------             |:-------------:          | -----:      |    ---               |
-| Naive Random Oversampler  | 70.0%                   |             |                      |
-| SMOTE Oversampling        | 72.0%                   |        |                      |
-| Cluster Centroids         | 65.0%                   |          |                      |
-| SMOTEENN                  | 69.0%                   |           |                      |
+F1 score - F1 Score is the weighted average of Precision and Recall. Therefore, this score takes both false positives and false negatives into account. Intuitively it is not as easy to understand as accuracy, but F1 is usually more useful than accuracy, especially if you have an uneven class distribution. Accuracy works best if false positives and false negatives have similar cost. If the cost of false positives and false negatives are very different, it’s better to look at both Precision and Recall. In our case, F1 score is 0.701.
 
 
 
+|  Algorithms               | Balanced Accuracy Score | Recall Score|F1 Score     |   Geometric Mean Score |
+| -------------             |:-------------:          | -----:      | -----:      |   ---                  |
+| Naive Random Oversampler  | 70.0%                   |0.69         |0.81         | 0.70                   |
+| SMOTE Oversampling        | 72.0%                   |0.73         |0.84         |  0.72                  |
+| Cluster Centroids         | 65.0%                   |0.48         |0.64         | 0.62                   |
+| SMOTEENN                  | 69.0%                   |0.65         |0.78         | 0.69                   |
 
+
+
+Imbalanced Classification Report: 
 
 ![naive](images/naive.png)
 
@@ -90,11 +104,6 @@ To evaluate and compare performance for each resampling algorithm, a balanced ac
 
 ![smoteenn](images/smoteenn.png)
 
-
-
-
-
-In conclusion, the SMOTE oversampler model had the best balanced accuracy score, recall score, and geometric mean score.
 
 
 ## Ensemble Learning
