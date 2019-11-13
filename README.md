@@ -1,95 +1,52 @@
-# Unit 11—Risky Business
+# Applying Machine-Learning Models to Predict Credit Risk 
 
-![Credit Risk](Images/credit-risk.jpg)
+In this assignment, several machine-learning models were used to predict credit risk using free data from LendingClub. The algorithms used in the analysis were selected to address the inherently imbalanced classification problem of credit risk. For each algorithm, a logistic regression classifier from sklearn.linear_model was used to resample the data. Then a balanced accuracy score, confusion matrix, and imbalanced classification report was generated to compare results. 
 
-## Background
+Before running the algorithms, the data from LendingClub was cleaned and prepared for analysis. This included dropping null values and columns, converting integer values to numerical data types, and encoding strings using get_dummies(). Once the data was in proper form, the features and target outcome data were placed in new dataframes and further split between testing and training. The target values, low risk and high risk, returned an expected imbalanced problem. Within the dataset, there were 68,470 high risk values verse 347 low risk values. To address this issue, multiple resampling models were tested and compared to determine which algorithm results in the best performance based on balanced accuracy score, recall score, and geometric mean score.  Below is a summary of results. 
 
-Auto loans, mortgages, student loans, debt consolidation ... these are just a few examples of credit and loans that people are seeking online. Peer-to-peer lending services such as LendingClub or Prosper allow investors to loan other people money without the use of a bank. However, investors always want to mitigate risk, so you have been asked by a client to help them use machine learning techniques to predict credit risk.
 
-In this assignment, you will build and evaluate several machine-learning models to predict credit risk using free data from LendingClub. Credit risk is an inherently imbalanced classification problem (the number of good loans is much larger than the number of at-risk loans), so you will need to employ different techniques for training and evaluating models with imbalanced classes. You will use the imbalanced-learn and Scikit-learn libraries to build and evaluate models using the two following techniques:
+### Naive Random Oversampler and SMOTE algorithms to oversample the data 
 
-1. [Resampling](#Resampling)
-2. [Ensemble Learning](#Ensemble-Learning)
+##### Naive Random Oversampling Balanced Accuracy Score: 70.0%
 
-- - -
+![naive](naive.png)
 
-### Files
+##### SMOTE Oversampling Balanced Accuracy Score: 72.0%
 
-[Resampling Starter Notebook](Starter_Code/credit_risk_resampling.ipynb)
+![smote](smote.png)
 
-[Ensemble Starter Notebook](Starter_Code/credit_risk_ensemble.ipynb)
 
-[Lending Club Loans Data](Instructions/Resources/LoanStats_2019Q1.csv.zip)
+### Cluster Centroids algorithm to undersample the data 
 
-- - -
+##### Cluster Centroids Undersampling Balanced Accuracy Score: 65.0%
 
-### Instructions
+![cluster](cluster.png)
 
-#### Resampling
 
-You will use the [imbalanced learn](https://imbalanced-learn.readthedocs.io) library to resample the LendingClub data and build and evaluate logistic regression classifiers using the resampled data.
+### SMOTEENN algorithm to over and under-sample the data 
 
-You will:
+##### SMOTEENN Combination Balanced Accuracy Score: 69.0%
 
-1. Oversample the data using the `Naive Random Oversampler` and `SMOTE` algorithms.
-2. Undersample the data using the `Cluster Centroids` algorithm.
-3. Over- and under-sample using a combination `SMOTEENN` algorithm.
+![smoteenn](smoteenn.png)
 
-For each of the above, you will need to:
+In conclusion, the SMOTE oversampler model had the best balanced accuracy score, recall score, and geometric mean score.
 
-1. Train a `logistic regression classifier` from `sklearn.linear_model` using the resampled data.
-2. Calculate the `balanced accuracy score` from `sklearn.metrics`.
-3. Calculate the `confusion matrix` from `sklearn.metrics`.
-4. Print the `imbalanced classification report` from `imblearn.metrics`.
 
-Use the above to answer the following:
+## Ensemble Learning
 
-> Which model had the best balanced accuracy score?
->
-> Which model had the best recall score?
->
-> Which model had the best geometric mean score?
+##### Balanced Random Forest Classifier Accuracy Score: 78.0%
 
-#### Ensemble Learning
+![forest](forester.png)
 
-In this section, you will train and compare two different ensemble classifiers to predict loan risk and evaluate each model. You will use the `balanced random forest classifier` and the `easy ensemble AdaBoost classifier`.
+The top three features: 
 
-Be sure to complete the following steps for each model:
+![features](features.png)
 
-1. Train the model using the quarterly data from LendingClub provided in the `Resource` folder.
-2. Calculate the balanced accuracy score from `sklearn.metrics`.
-3. Print the confusion matrix from `sklearn.metrics`.
-4. Generate a classification report using the `imbalanced_classification_report` from imbalanced learn.
-5. For the balanced random forest classifier only, print the feature importance sorted in descending order (most important feature to least important) along with the feature score.
+##### Easy Ensemble Classifier Accuracy Score: 93.0%
 
-Use the above to answer the following:
+![easy](easy.png)
 
-> Which model had the best balanced accuracy score?
->
-> Which model had the best recall score?
->
-> Which model had the best geometric mean score?
->
-> What are the top three features?
-
-- - -
-
-### Hints and Considerations
-
-Use the quarterly data from the LendingClub data that is provided in the `Resources` folder. Keep the file in the zipped format and use the starter code to read the file.
-
-Refer to the [imbalanced-learn](https://imbalanced-learn.readthedocs.io/en/stable/) and [scikit-learn](https://scikit-learn.org/stable/) official documentation for help with training the models. Remember that these models all use the model->fit->predict API.
-
-For the ensemble learners, use 100 estimators for both models.
-
-- - -
-
-### Submission
-
-* Create Jupyter notebooks for the homework and host the notebooks on GitHub.
-* Include a markdown that summarizes your homework and include this report in your GitHub repository.
-* Submit the link to your GitHub project to Bootcamp Spot.
+In conclusion, the Easy Ensemble Classifier had the best balanced accuracy score, recall score, and geometric score. 
 
 
 
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
