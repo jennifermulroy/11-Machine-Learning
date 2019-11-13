@@ -71,27 +71,26 @@ Using these resampled training datasets, models were fit with the `logistic regr
 Model Performance Analysis 
 ----
 
-To evaluate and compare performance for each model, a balanced accuracy score, confusion matrix, and imbalanced classification report was generated. 
+To evaluate and compare performance, a balanced accuracy score, confusion matrix, and imbalanced classification report was generated for each model. 
 
-The accuracy score measures the ratio of correctly predicted observations to the total observations. From the results below, SMOTE oversampling resulted in a slightly higher accuracy score. 
+The accuracy score measures the ratio of correctly predicted observations to the total observations. From the results below, SMOTE oversampling resulted in the highest accuracy score. 
 
-A confusion matrix is a table that is used to describe the performance of a classification model on a set of test data for which the true values are known. From the confusion matrix, precision and recall ratios can be measured. Precision is the ratio of correctly predicted positive observations to the total predicted positive observations. Recall is the ratio of correctly predicted positive observations to the all observations in actual class
-Recall = TP/TP+FN
+A confusion matrix is used to describe the performance of a classification model to compare actual results with the model's predicted results. From the confusion matrix, precision and recall ratios can be measured. Precision is the ratio of correctly predicted positive observations to the total predicted positive observations. Recall is the ratio of correctly predicted positive observations to the all observations in the positive class. F1 score is the weighted average of Precision and Recall. 
 
-F1 score - F1 Score is the weighted average of Precision and Recall. Therefore, this score takes both false positives and false negatives into account. Intuitively it is not as easy to understand as accuracy, but F1 is usually more useful than accuracy, especially if you have an uneven class distribution. Accuracy works best if false positives and false negatives have similar cost. If the cost of false positives and false negatives are very different, it’s better to look at both Precision and Recall. In our case, F1 score is 0.701.
-
+Based on the results, SMOTE performed best across all metrics.  
 
 
-|  Algorithms               | Balanced Accuracy Score | Recall Score|F1 Score     |   Geometric Mean Score |
+
+|  Resampling Algorithms    | Balanced Accuracy Score | Recall Score|F1 Score     |   Geometric Mean Score |
 | -------------             |:-------------:          | -----:      | -----:      |   ---                  |
-| Naive Random Oversampler  | 70.0%                   |0.69         |0.81         | 0.70                   |
-| SMOTE Oversampling        | 72.0%                   |0.73         |0.84         |  0.72                  |
+| Naive Random              | 70.0%                   |0.69         |0.81         | 0.70                   |
+| SMOTE                     | 72.0%                   |0.73         |0.84         | 0.72                   |
 | Cluster Centroids         | 65.0%                   |0.48         |0.64         | 0.62                   |
 | SMOTEENN                  | 69.0%                   |0.65         |0.78         | 0.69                   |
 
 
 
-Imbalanced Classification Report: 
+Imbalanced Classification Reports : 
 
 ![naive](images/naive.png)
 
