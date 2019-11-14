@@ -128,7 +128,7 @@ Imbalanced Classification Reports:
 
 ## Ensemble Learning
 
-For the Ensemble learning analysis, `BalancedRandomForestClassifier` and `EasyEnsembleClassifier` with 100 estimators were used to build out both models using the same training and testing data. 
+For the Ensemble learning analysis, `BalancedRandomForestClassifier` and `EasyEnsembleClassifier` with 100 estimators used to build out both models using the same training and testing data. 
 
 The Balanced Random Forest and Easy Ensemble had similar low precision rates for high risk but Easy Ensemble performed very well across all other metrics.  
 
